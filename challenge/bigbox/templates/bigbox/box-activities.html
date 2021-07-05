@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <h2> Listado de actividades</h2>
+    <br>
+    {% for detail in page_obj %}
+    {{detail}}<br>
+    {% endfor %}
+    <br>
+    <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; primera</a>
+            <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">última&raquo;</a>
+        {% endif %}
+    </span>
+    </div>
+</html>

@@ -19,5 +19,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('box/', views.box),
+    path('box/', views.box_list),
+    path('box/<int:pk>/', views.box),
+    path('box/<int:pk>/activity/', views.box_activities, name='box-activities'),
 ]
