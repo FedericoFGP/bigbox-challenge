@@ -1,1 +1,4 @@
 venv/*
+challenge/bigbox/__pycache__/*
+challenge/bigbox/__pycache__/*
+challenge/challenge/__pycache__/*
