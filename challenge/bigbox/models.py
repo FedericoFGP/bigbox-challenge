@@ -11,20 +11,20 @@ class CommonInfo(models.Model):
         abstract = True
 
 
-class Reason(CommonInfo):  
-    pass 
-    
+class Reason(CommonInfo):
+    pass
 
-class Category(CommonInfo):    
-    description = models.TextField(verbose_name=u'descripción')
+
+class Category(CommonInfo):
+    description = models.TextField(verbose_name=u'descripciÃ³n')
 
 
 class Prodcut(models.Model):
     name = models.CharField(max_length=200)
     internal_name = models.CharField(max_length=200)
-    description = models.TextField(verbose_name=u'descripción')
+    description = models.TextField(verbose_name=u'descripciÃ³n')
 
-    category = models.ForeignKey(Category, verbose_name='categoría', on_delete=models.CASCADE,null=True, blank=True)
+    category = models.ForeignKey(Category, verbose_name='categorÃ­a', on_delete=models.CASCADE,null=True, blank=True)
 
 
     class Meta:
