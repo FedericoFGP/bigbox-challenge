@@ -5,12 +5,15 @@
 	{% block content %} {{box}} {% endblock %}
 	
 	{% for detail in details %}
+
 	<ul>
 		{{detail.pk}}
 	</ul>
+
 	{%endfor%}	
 	
 	<br>
-	<a href={% url 'box_activities' pk=box.pk%}>Actividades</a>
+	<a href={% url 'box-activities' pk=box.pk%}>Actividades</a>
 	<br>
+
 </html>

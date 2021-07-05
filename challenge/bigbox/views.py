@@ -26,3 +26,9 @@ def box_activities(request,pk):
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'bigbox/box-activities.html', {'page_obj': page_obj})
+
+def box_slug(request,slug):
+
+    linked_box = Box.objects.get(slug = slug)
+
+    return box(request,linked_box.pk)
