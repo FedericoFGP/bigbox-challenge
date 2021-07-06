@@ -79,11 +79,11 @@ DATABASES = {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bigbox',
-        'USER': 'admin',
-        'PASSWORD': 'admin.password',
+        'NAME': 'ddhiht9lrmqe8e',
+        'USER': 'qtrpkhjyuftxnx',
+        'PASSWORD': '3ded0ed8968cccc85c431a670dd7454301ab2bc441ddae515f85dd5451b2e273',
         #'HOST': '127.0.0.1',
-        'HOST': 'postgres://qtrpkhjyuftxnx:3ded0ed8968cccc85c431a670dd7454301ab2bc441ddae515f85dd5451b2e273@ec2-34-233-114-40.compute-1.amazonaws.com:5432/ddhiht9lrmqe8e',
+        'HOST': 'ec2-34-233-114-40.compute-1.amazonaws.com'
         'PORT': '5432',
     }
 }
