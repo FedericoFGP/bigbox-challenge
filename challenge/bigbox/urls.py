@@ -18,6 +18,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('index/', views.index),
     path('box/', views.box_list),
     path('box/<int:pk>/', views.box),
     path('box/<int:pk>/activity/', views.box_activities, name='box-activities'),

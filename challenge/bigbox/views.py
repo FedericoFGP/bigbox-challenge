@@ -1,8 +1,14 @@
 import requests
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
+from django.http import HttpResponse
 from .models import Box
 # Create your views here.
+
+def index(request):
+    r = requests.get('http://httpbin.org/status/418')
+    print(r.text)
+    return HttpResponse('<pre>' + r.text + '</pre>')
 
 def box_list(request):
 
