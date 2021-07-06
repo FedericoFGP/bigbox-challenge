@@ -82,7 +82,8 @@ DATABASES = {
         'NAME': 'bigbox',
         'USER': 'admin',
         'PASSWORD': 'admin.password',
-        'HOST': '127.0.0.1',
+        #'HOST': '127.0.0.1',
+        'HOST': 'postgres://qtrpkhjyuftxnx:3ded0ed8968cccc85c431a670dd7454301ab2bc441ddae515f85dd5451b2e273@ec2-34-233-114-40.compute-1.amazonaws.com:5432/ddhiht9lrmqe8e',
         'PORT': '5432',
     }
 }
