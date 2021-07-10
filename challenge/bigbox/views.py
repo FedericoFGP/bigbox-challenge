@@ -2,7 +2,7 @@ import requests
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.http import HttpResponse
-from .models import Box
+from .models import Box, Category
 # Create your views here.
 
 def index(request):
@@ -11,17 +11,22 @@ def index(request):
     return HttpResponse('<pre>' + r.text + '</pre>')
 
 def box_list(request):
-
     boxes = Box.objects.all()
-
     return render(request, 'bigbox/box.html', {"boxes": boxes})
 
 def box(request,pk):
-
     box = get_object_or_404(Box, pk=pk)
     details = list(box.activities.all()[:5])
+    category = get_category(box.category_id)
+    disponibilidad = box_disponibilidad(box)
+    return render(request, 'bigbox/box-details.html', {"box": box, "details": details, "category":category, "disponibilidad": disponibilidad})
 
-    return render(request, 'bigbox/box-details.html', {"box": box, "details": details})
+def get_category(id):
+    category = Category.objects.get(id=id)
+    return category
+
+def box_disponibilidad(box):
+    return "Disponible" if box.purchase_available else "No disponible"
 
 def box_activities(request,pk):
 

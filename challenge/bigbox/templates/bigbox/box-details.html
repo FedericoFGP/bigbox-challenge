@@ -2,18 +2,28 @@
 <html>
 	<h2>Vista de una box con sus detalles/información</h2>
 	<br>
-	{% block content %} {{box}} {% endblock %}
-	
+	{% block content %} 
+		<h3>Nombre: </h3> {{box.name}}
+		<br>
+		<h4>Categoría: </h4> {{category.name}}
+		<br>
+		<h4>Precio: </h4> {{box.price}}
+		<br>
+		<h4>¿De qué se trata?.. </h4> {{box.description}}
+		<br>
+		<h4>Estado: </h4>{{disponibilidad}}
+		<br>
+
+	<h4>Actividades: </h4>
 	{% for detail in details %}
-
 	<ul>
-		{{detail}}
+		<h4>Actividad: {{detail}}</h4>
 	</ul>
-
 	{%endfor%}	
 	
 	<br>
-	<a href={% url 'box-activities' pk=box.pk%}>Actividades</a>
+	<a href={% url 'box-activities' pk=box.pk%}>Todas las actividades</a>
 	<br>
 
+	{% endblock %}
 </html>
