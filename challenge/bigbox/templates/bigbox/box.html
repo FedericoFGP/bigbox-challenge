@@ -4,7 +4,7 @@
 
 	<ul>
 		{% for box in boxes%}
-		<li>{{box}}</li>
+		<li> <a href= '{{box.pk}}' > {{box}} </a></li>
 		{% endfor %}
 	</ul>
 
