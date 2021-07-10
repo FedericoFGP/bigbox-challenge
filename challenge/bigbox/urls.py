@@ -22,5 +22,6 @@ urlpatterns = [
     path('box/', views.box_list),
     path('box/<int:pk>/', views.box),
     path('box/<int:pk>/activity/', views.box_activities, name='box-activities'),
+    path('box/<int:box_pk>/activity/<int:activity_id>', views.box_relation_status, name='box-status-related'),
     path('box/<slug:slug>/', views.box_slug, name='box-slug'),
 ]
