@@ -2,7 +2,7 @@ import requests
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.http import HttpResponse
-from .models import Box, Category
+from .models import Box, Category, Activity
 # Create your views here.
 
 def index(request):
@@ -47,10 +47,12 @@ def box_slug(request,slug):
 
 def box_relation_status(request,box_pk,activity_id):
     status = status_relation(box_pk,activity_id)
+    box = get_object_or_404(Box, pk=box_pk)
+    activity = get_object_or_404(Activity, id=activity_id)
 
-    return render(request, 'bigbox/box-status-related.html', {'status': status})
+    return render(request, 'bigbox/box-status-related.html', {'status': status,'box_name': box.name, 'activity_name': activity.name})
 
 def status_relation(box_pk, activity_id):
     box = get_object_or_404(Box, pk = box_pk)
     activities = box.activities.all()
-    return "Esta relacionado" if activities.filter(id=activity_id) else "No esta relacionado"
+    return "relacionado" if activities.filter(id=activity_id) else "no relacionado"
