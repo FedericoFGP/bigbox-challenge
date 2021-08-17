@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -53,7 +52,7 @@ MIDDLEWARE = [
 ]
 
 # Configuration for Django Debug toolbar
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('127.0.0.1','52.54.141.46','localhost',)
 
 INSERT_BEFORE = ('</body>')
 # Example of "customise" panels
@@ -75,10 +74,13 @@ INSERT_BEFORE = ('</body>')
 #]
 
 # Example of config
-#DEBUG_TOOLBAR_CONFIG = [
-#    ''
-#]
-
+#DEBUG_TOOLBAR_CONFIG = {
+#    # Toolbar options
+#    'RESULTS_CACHE_SIZE': 3,
+#    'SHOW_COLLAPSED': True,
+#    # Panel options
+#    'SQL_WARNING_THRESHOLD': 100,   # milliseconds
+#}
 
 ROOT_URLCONF = 'challenge.urls'
 
