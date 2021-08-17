@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bigbox',
     'debug_toolbar',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -139,6 +140,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+## Django extensions
+SHELL_PLUS = "ipython"
+
+#GRAPH_MODELS = {
+#    'all_applications': True,
+#    'group_models':True,
+#}
+
+GRAPH_MODELS = {
+    'app_labels': ["bigbox"],
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

@@ -5,3 +5,7 @@ django-extensions
 gunicorn
 django-heroku
 requests
+ipython
+pygraphviz
+pyparsing
+pydot
