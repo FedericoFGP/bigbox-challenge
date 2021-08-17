@@ -9,7 +9,7 @@ def index(request):
    # r = requests.get('http://httpbin.org/status/418')
    # print(r.text)
    # return HttpResponse('<pre>' + r.text + '</pre>', content_type="text/html; charset=utf-8")
-   return render(request,'index.html')
+   return render(request,'bigbox/index.html')
 
 def box_list(request):
     boxes = Box.objects.all()
