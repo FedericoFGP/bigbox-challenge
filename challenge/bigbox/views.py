@@ -8,7 +8,8 @@ from .models import Box, Category, Activity
 def index(request):
     r = requests.get('http://httpbin.org/status/418')
     print(r.text)
-    return HttpResponse('<pre>' + r.text + '</pre>')
+    print
+    return HttpResponse('<pre>' + r.text + '</pre>', content_type="text/html; charset=utf-8")
 
 def box_list(request):
     boxes = Box.objects.all()
