@@ -1,9 +1,10 @@
 
 {% extends "bigbox/base.html" %}
 
-{% block title %}Hola soy un index{% endblock %}
+{% block title %}index{% endblock %}
 
 {% block content %}
-<h1>Soy el titulo de un index</h1>
+<h1>Titulo de un index</h1>
 
+<a href={% url 'bigbox:box-list'%}>Box link</a>
 {% endblock %}
