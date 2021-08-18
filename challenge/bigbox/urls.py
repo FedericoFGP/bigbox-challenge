@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+app_name = 'bigbox'
 urlpatterns = [
-    path('index/', views.index),
-    path('box/', views.box_list),
-    path('box/<int:pk>/', views.box),
+    path('', views.IndexView.as_view(), name='index'),
+    path('box/', views.BoxListView.as_view(), name='box-list'),
+    path('box/<int:pk>/', views.BoxDetailView.as_view(), name='box-pk'),
     path('box/<int:pk>/activity/', views.box_activities, name='box-activities'),
     path('box/<int:box_pk>/activity/<int:activity_id>', views.box_relation_status, name='box-status-related'),
     path('box/<slug:slug>/', views.box_slug, name='box-slug'),

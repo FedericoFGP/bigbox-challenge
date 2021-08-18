@@ -3,35 +3,35 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from .models import Box, Category, Activity
+from django.views import generic
+
 # Create your views here.
 
-def index(request):
-   # r = requests.get('http://httpbin.org/status/418')
-   # print(r.text)
-   # return HttpResponse('<pre>' + r.text + '</pre>', content_type="text/html; charset=utf-8")
-   return render(request,'bigbox/index.html')
+class IndexView(generic.ListView):
+    template_name = 'bigbox/index.html'
 
-def box_list(request):
-    boxes = Box.objects.all()
-    return render(request, 'bigbox/box.html', {"boxes": boxes})
+    def get_queryset(self):
+        return Box.objects.order_by('id')[:5]
 
-def box(request,pk):
-    box = get_object_or_404(Box, pk=pk)
-    details = list(box.activities.all()[:5])
-    category = get_category(box.category_id)
-    disponibilidad = box_disponibilidad(box)
-    return render(request, 'bigbox/box-details.html', {"box": box, "details": details, "category":category, "disponibilidad": disponibilidad})
+class BoxDetailView(generic.DetailView):
+    model = Box
+    template_name = 'bigbox/box-details.html'
+
+class BoxListView(generic.ListView):
+    template_name = 'bigbox/box.html'
+    context_object_name = 'boxes'
+
+    def get_queryset(self):
+        return Box.objects.order_by('id')[:5]
 
 def get_category(id):
     category = Category.objects.get(id=id)
     return category
 
 def box_disponibilidad(box):
-
     return "Disponible" if box.purchase_available else "No disponible"
 
 def box_activities(request,pk):
-
     box = get_object_or_404(Box, pk=pk)
     details = list(box.activities.all())
     paginator = Paginator(details, 20)
