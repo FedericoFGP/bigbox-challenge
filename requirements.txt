@@ -6,6 +6,6 @@ gunicorn
 django-heroku
 requests
 ipython
-pygraphviz
+#pygraphviz
 pyparsing
 pydot
