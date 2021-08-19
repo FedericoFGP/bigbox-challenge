@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>	
-	<body>
+{% extends "bigbox/base.html" %}
+{% block title %}Box{% endblock %}
+{% block content %}
 	<h1>Lista de box</h1>
-
 	<ul>
 		{% for box in boxes%}
 		<li> <a href= '{{box.pk}}' > {{box}} </a></li>
 		{% endfor %}
 	</ul>
-
-	</body>
-
-</html> 
+{% endblock %}

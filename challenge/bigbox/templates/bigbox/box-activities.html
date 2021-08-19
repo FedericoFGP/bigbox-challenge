@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <body>
+{% extends "bigbox/base.html" %}
+{% block title %}Listado{% endblock %}
+{% block content %}
     <h2> Listado de actividades</h2>
     <br>
     {% for detail in page_obj %}
@@ -24,5 +24,4 @@
         {% endif %}
     </span>
     </div>
-    </body>
-</html>
+{% endblock %}

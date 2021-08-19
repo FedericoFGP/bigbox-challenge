@@ -109,14 +109,15 @@ WSGI_APPLICATION = 'challenge.wsgi.application'
 
 DATABASES = {
     'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ddhiht9lrmqe8e',
-        'USER': 'qtrpkhjyuftxnx',
-        'PASSWORD': '3ded0ed8968cccc85c431a670dd7454301ab2bc441ddae515f85dd5451b2e273',
-        #'HOST': '127.0.0.1',
-        'HOST': 'ec2-34-233-114-40.compute-1.amazonaws.com',
+#        'NAME': 'ddhiht9lrmqe8e',
+#        'USER': 'qtrpkhjyuftxnx',
+#        'PASSWORD': '3ded0ed8968cccc85c431a670dd7454301ab2bc441ddae515f85dd5451b2e273',
+#        'HOST': 'ec2-34-233-114-40.compute-1.amazonaws.com',
+        'NAME': 'bigbox',
+        'USER': 'admin',
+        'PASSWORD': 'admin.password',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
@@ -169,8 +170,8 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 SATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )

@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-	<body>
-		
+{% extends "bigbox/base.html" %}
+{% block title %}Detalle{% endblock %}
+{% block content %}
 	<h2>Vista de una box con sus detalles/información</h2>
 	<br>
-	{% block content %} 
 		<h3>Nombre: </h3> {{box.name}}
 		<br>
 		<h4>Categoría: </h4> {{category.name}}
@@ -15,18 +13,12 @@
 		<br>
 		<h4>Estado: </h4>{{disponibilidad}}
 		<br>
-
 	<h4>Actividades: </h4>
 	{% for detail in details %}
 	<ul>
 		<h4>Actividad: {{detail}}</h4>
 	</ul>
 	{%endfor%}	
-	
-	<br>
 	<a href={% url 'bigbox:box-activities' pk=box.pk%}>Todas las actividades</a>
 	<br>
-
-	{% endblock %}
-	</body>
-</html>
+{% endblock %}

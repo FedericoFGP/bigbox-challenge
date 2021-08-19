@@ -9,13 +9,13 @@ from django.views import generic
 
 class IndexView(generic.ListView):
     template_name = 'bigbox/index.html'
-
     def get_queryset(self):
-        return Box.objects.order_by('id')[:5]
+        pass
 
 class BoxDetailView(generic.DetailView):
     model = Box
     template_name = 'bigbox/box-details.html'
+    def get_context_data(self):
 
 class BoxListView(generic.ListView):
     template_name = 'bigbox/box.html'

@@ -1,12 +1,22 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
-<head>
-    <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
-    <img src="{% static "images/bigbox.png" %}" alt="Logo">
-    {% block content %}
-    
-    {% endblock %}
-</body>
+    <head>
+        <title>Titulo de index</title>
+        <img src="{% static "images/bigbox.png" %}" alt="logo" />
+    </head>
+    <body>
+        <header class="header">
+          <div class="container">
+          </div>
+        </header>
+        <main class="container">
+            <div class="row">
+                <div class="col">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </main>
+    </body>
 </html>
