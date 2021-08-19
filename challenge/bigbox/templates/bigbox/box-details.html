@@ -5,20 +5,27 @@
 	<br>
 		<h3>Nombre: </h3> {{box.name}}
 		<br>
-		<h4>Categoría: </h4> {{category.name}}
+		<h4>Categoría: </h4> {{box.category.name}}
 		<br>
 		<h4>Precio: </h4> {{box.price}}
 		<br>
 		<h4>¿De qué se trata?.. </h4> {{box.description}}
 		<br>
-		<h4>Estado: </h4>{{disponibilidad}}
+		<h4>Estado: </h4>
+		{% if box.purchase_available %}
+				Disponible
+		{% else %}
+				No disponible
+		{% endif %}
 		<br>
 	<h4>Actividades: </h4>
-	{% for detail in details %}
-	<ul>
-		<h4>Actividad: {{detail}}</h4>
-	</ul>
-	{%endfor%}	
+	{% with new_list=box.activities.all|slice:":5" %}
+		{% for detail in new_list %}
+		<ul>
+			<h4>Actividad: {{detail.name}}</h4>
+		</ul>
+		{% endfor %}	
+	{% endwith %}
 	<a href={% url 'bigbox:box-activities' pk=box.pk%}>Todas las actividades</a>
 	<br>
 {% endblock %}

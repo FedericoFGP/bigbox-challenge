@@ -15,7 +15,6 @@ class IndexView(generic.ListView):
 class BoxDetailView(generic.DetailView):
     model = Box
     template_name = 'bigbox/box-details.html'
-    def get_context_data(self):
 
 class BoxListView(generic.ListView):
     template_name = 'bigbox/box.html'
@@ -28,9 +27,6 @@ def get_category(id):
     category = Category.objects.get(id=id)
     return category
 
-def box_disponibilidad(box):
-    return "Disponible" if box.purchase_available else "No disponible"
-
 def box_activities(request,pk):
     box = get_object_or_404(Box, pk=pk)
     details = list(box.activities.all())
@@ -41,9 +37,7 @@ def box_activities(request,pk):
     return render(request, 'bigbox/box-activities.html', {'page_obj': page_obj})
 
 def box_slug(request,slug):
-
     linked_box = Box.objects.get(slug = slug)
-
     return box(request,linked_box.pk)
 
 def box_relation_status(request,box_pk,activity_id):
