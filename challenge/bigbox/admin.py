@@ -11,6 +11,7 @@ class ActivityAdmin(admin.ModelAdmin):
        ('Datos',            {'fields': ['description', 'name', 'internal_name']}),
    ]
    # exclude = ['internal_name']
+
 class BoxInline(admin.StackedInline):
     model = Box
     extra = 3
