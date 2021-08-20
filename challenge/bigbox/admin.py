@@ -3,6 +3,8 @@ from .models import *
 
 class ActivityAdmin(admin.ModelAdmin):
    # fields = ['category', 'description'] 
+   list_display = ('name','description')
+   list_filter = ['purchase_available']
 
    fieldsets = [
        (None,               {'fields': ['category','purchase_available']}),
