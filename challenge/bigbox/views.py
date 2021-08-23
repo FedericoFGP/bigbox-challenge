@@ -1,9 +1,16 @@
 import requests
+# Solo importa el archivo
+#import settings
+
+# Importa todo el proyecto 
+from django.conf import settings
+
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from .models import Box, Category, Activity
 from django.views import generic
+
 
 # Create your views here.
 
@@ -30,7 +37,7 @@ def get_category(id):
 def box_activities(request,pk):
     box = get_object_or_404(Box, pk=pk)
     details = list(box.activities.all())
-    paginator = Paginator(details, 20)
+    paginator = Paginator(details, settings.PAGINATOR_BOX_ACTIVITIES)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -58,3 +65,4 @@ def status_relation(box_pk, activity_id):
     box = get_object_or_404(Box, pk = box_pk)
     activities = box.activities.all()
     return "relacionado" if activities.filter(id=activity_id) else "no relacionado"
+
