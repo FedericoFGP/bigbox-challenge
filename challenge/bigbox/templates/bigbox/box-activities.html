@@ -4,7 +4,7 @@
     <h2> Listado de actividades</h2>
     <br>
     {% for detail in page_obj %}
-    {{detail}}<br>
+    {{detail.name}}<br>
     {% endfor %}
     <br>
     <div class="pagination">
